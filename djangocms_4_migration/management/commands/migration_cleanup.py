@@ -24,7 +24,7 @@ def _delete_page(page):
             cursor.execute("DELETE FROM cms_pageurl WHERE page_id = %s", [page.id])
             cursor.execute("DELETE FROM cms_page WHERE id = %s", [page.id])
 
-    except ProtectedError as err:
+    except Exception as err:
         logger.error("Couldn't delete Page %s %s" % (page.id, err))
 
 
